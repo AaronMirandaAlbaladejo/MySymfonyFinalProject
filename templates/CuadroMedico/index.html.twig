@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% block contenido %}
+
+<h1>Especialidades - Cuadro Médico</h1>
+ {% for esp in especialidades %}
+
+ 
+ <h2><a href="{{ path('especialidad', {'id': esp.id}) }}"> {{esp.Especialidad}}</a></h2>
+    
+ 
+
+ {% endfor %}
+
+{% endblock %}

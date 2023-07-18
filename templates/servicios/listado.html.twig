@@ -1,0 +1,31 @@
+{% extends 'default.html.twig' %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+ 
+    {# total items count #}
+    <div class="count">
+        <span class="label label-primary">
+            Entradas en total: {{ pagination.getTotalItemCount }}
+        </span>
+    </div>
+    <br/>
+    <table class="table table-bordered">
+        <h1>Lista de servicios</h1>
+   
+        {# table body #}
+        {% for item in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ item.contenido|raw }}</td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+</div>
+
+{% endblock %}

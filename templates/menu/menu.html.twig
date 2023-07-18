@@ -1,0 +1,17 @@
+<ul>
+{% for item in menus %}
+	<li>
+	 
+         <a href="{{ path(item.enlace) }}">{{item.titulo}}</a>
+        
+    </li>    
+{% endfor %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li><a href="{{path("app_logout")}}">Logout</a></li>
+        {% else %}
+            {# Usuario no autentificado permitimos registro y login#}
+            <li><a href="{{path("register")}}">Registro</a></li>
+            <li><a href="{{path("app_login")}}">Login</a></li>
+        {% endif %}
+</ul>

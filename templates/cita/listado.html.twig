@@ -1,0 +1,50 @@
+{% extends 'default.html.twig' %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+ 
+    {# total items count #}
+    <div class="count">
+        <span class="label label-primary">
+            Entradas en total: {{ pagination.getTotalItemCount }}
+        </span>
+    </div>
+    <br/>
+    <table class="table table-bordered">
+        <tr>
+           {# sorting of properties based on query components #}
+            <th{% if pagination.isSorted('m.nombre') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'NOMBRE', 'm.nombre') }}
+            </th>
+            <th{% if pagination.isSorted('m.direccion') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'DIRECCION', 'm.direccion') }}
+            </th>
+            <th{% if pagination.isSorted('m.telefono') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'TELEFONO', 'm.telefono') }}
+            </th>
+            <th{% if pagination.isSorted('m.especialidad') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'ESPECIALIDAD', 'm.especialidad') }}
+            </th>
+            <th{% if pagination.isSorted('m.descripcion') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(pagination, 'DESCRIPCION', 'm.descripcion') }}
+            </th>
+        </tr>
+ 
+        {# table body #}
+        {% for item in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.direccion }}</td>
+                <td>{{ item.telefono }}</td>
+                <td>{{ item.especialidad }}</td>
+                <td>{{ item.descripcion }}</td>
+        {% endfor %}
+    </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{# footer/test.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}
+    {{ render(controller('App\\Controller\\FooterController::footer')) }}
+{% endblock %}

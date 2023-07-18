@@ -1,0 +1,19 @@
+{% extends 'default.html.twig' %}
+
+{% block contenido %}
+<div class="container m-1" style="margin-top:50px">
+<h1>Encuestas</h1>
+
+<div class="m-3">
+{% for encuesta in encuestas %}
+
+    <h2><a href="{{ path('encuesta', {'id': encuesta.encuestaId}) }}">{{ encuesta.encuesta }}</a></h2>
+
+{% endfor %}
+    <hr>
+
+    <h2><a href="{{path("resultados")}}">Resultados</a></h2>
+
+</div>
+
+{% endblock %}

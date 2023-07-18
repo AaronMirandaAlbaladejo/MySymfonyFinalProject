@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% block contenido %}
+
+<h1>Servicios</h1>
+<ul>
+     <div style="width: 100%"class="row row-cols-2">
+ {% for ser in servicio %}
+
+        <h2><a href="{{ path('servicios', {'id': ser.id}) }}"> {{ser.servicio}}</a></h2>
+    
+ {% endfor %}
+</div>
+</ul>
+{% endblock %}

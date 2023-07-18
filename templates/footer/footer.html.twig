@@ -1,0 +1,22 @@
+{# templates/footer/footer.html.twig #}
+
+
+<table>
+<tr>	
+{% set fila = 1 %}
+{% for item in footers %}
+	
+	{% if fila != item.fila %}
+			</tr><tr>
+			{% set fila = item.fila %}
+	{%endif%}
+	   <td>
+	   <a href="{{ item.enlace }}">{{item.titulo}}</a> 
+         </td>
+
+		 {# <a href="{{ path('item.enlace', {id: item.id}) }}">{{item.titulo}}</a> #}
+	
+
+{% endfor %}
+</tr>
+</table>
